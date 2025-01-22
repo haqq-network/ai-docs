@@ -10,7 +10,7 @@ description: HAQQ Shariaa Standards Documentation
 You can view or download our Shariaa Standards documentation in PDF format:
 
 <iframe
-  src="/pdfs/Shariaa-Standards-ENG.pdf"
+  src="/pdfs/en-shariaa-standards.pdf"
   width="100%"
   height="800px"
   style={{border: 'none'}}

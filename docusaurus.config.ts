@@ -147,10 +147,10 @@ const config: Config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'default',
+        id: 'ddocs-efault',
         path: 'docs',
         routeBasePath: 'docs',
-        sidebarPath: './sidebars.js',
+        sidebarPath: './sidebars.ts',
         // This allows serving PDF files
         include: ['**/*.{md,mdx,pdf}'],
       },
