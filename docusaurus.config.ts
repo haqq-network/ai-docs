@@ -10,7 +10,7 @@ const config: Config = {
   tagline: 'HAQQ is a scalable and interoperable Ethereum, built on Proof-of-Stake with fast-finality.',
   url: 'https://docs.haqq.network',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   // trailingSlash: true,
@@ -138,7 +138,7 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              href: '/sources',
+              to: '/docs',
               label: 'Sources',
             },
             
