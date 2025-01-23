@@ -1,34 +1,47 @@
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
+
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  title: 'HAQQ Documentation',
+  tagline: 'HAQQ is a scalable and interoperable Ethereum, built on Proof-of-Stake with fast-finality.',
+  url: 'https://docs.haqq.network',
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/favicon.ico',
+  // trailingSlash: true,
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+  },
+
+  customFields: {
+    project: {
+      name: 'HAQQ Network',
+      short_name: 'HAQQ',
+      denom: 'ISLM',
+      ticker: 'ISLM',
+      binary: 'haqqd',
+      testnet_denom: 'ISLM',
+      testnet_ticker: 'ISLM',
+      rpc_url: 'https://rpc.eth.haqq.network',
+      rpc_url_testnet: 'https://rpc.eth.testedge2.haqq.network',
+      rpc_url_local: 'http://localhost:8545/',
+      chain_id: '11235',
+      testnet_chain_id: '54211',
+      latest_version: 'v1.8.2',
+      mainnet_version: 'v1.8.2',
+      testnet_version: 'v1.8.2',
+      block_explorer_url: 'https://explorer.haqq.network',
+      eth_name: 'Main Ethereum Network',
+      unbonding_period: '21 days',
+      active_set: '150',
+    },
   },
 
   presets: [
@@ -37,125 +50,142 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          breadcrumbs: true,
+          routeBasePath: 'docs',
+          path: 'docs',
+          include: ['**/*.{md,mdx}'],
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
         },
         theme: {
           customCss: './src/css/custom.css',
+        },
+        sitemap: {
+          lastmod: 'datetime',
+          changefreq: 'weekly',
+          priority: 0.5,
         },
       } satisfies Preset.Options,
     ],
   ],
 
+  plugins: [
+    async function tailwindPlugin() {
+      return {
+        name: 'docusaurus-tailwindcss',
+        configurePostCss(postcssOptions) {
+          postcssOptions.plugins.push(require('tailwindcss'));
+          postcssOptions.plugins.push(require('autoprefixer'));
+          return postcssOptions;
+        },
+      };
+    },
+  ],
+
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    metadata: [{
+
+      name: 'content-type',
+      content: 'application/pdf'
+    },
+      {
+        name: 'keywords',
+        content: 'HAQQ, blockchain, ethereum, proof of stake, validator, documentation, islamic blockchain',
+      },
+      {
+        name: 'description',
+        content: 'HAQQ is a scalable and interoperable Ethereum blockchain, built on Proof-of-Stake with fast-finality. Explore our comprehensive documentation.',
+      },
+      {
+        property: 'og:title',
+        content: 'HAQQ Network Documentation - Ethereum Compatible Blockchain Platform',
+      },
+      {
+        property: 'og:description',
+        content: 'HAQQ is a scalable and interoperable Ethereum blockchain, built on Proof-of-Stake with fast-finality. Explore our comprehensive documentation.',
+      },
+      {
+        name: 'sitemap',
+        content: '/sitemap.xml',
+      },
+    ],
     navbar: {
-      title: 'My Site',
+      title: '',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'HAQQ Network',
+        src: 'img/haqq-logo.svg',
+        srcDark: 'img/haqq-logo-white.svg',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          // href: '/sources',
           position: 'left',
-          label: 'Tutorial',
+          type: 'docSidebar',
+          sidebarId: 'docs',
+          label: 'ID Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/haqq-network/ai-docs',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
     footer: {
-      style: 'dark',
       links: [
         {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              to: '/docs',
+              label: 'Sources',
             },
+            
           ],
         },
         {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'HAQQ Network Discord',
+              href: 'https://discord.gg/CDtXuQG3Vd',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Islamic Coin Discord',
+              href: 'https://discord.gg/islamiccoin',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Twitter',
+              href: 'https://twitter.com/The_HaqqNetwork',
             },
             {
+              href: 'https://github.com/haqq-network/haqq',
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} HAQQ Network`,
     },
     prism: {
+
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      // theme: lightCodeTheme,
+      // darkTheme: darkCodeTheme,
+      /*additionalLanguages: [
+        'powershell',
+        'shell-session', 
+        'bash',
+        'solidity',
+        'typescript',
+        'toml',
+        'yaml',
+        'json',
+      ],*/
     },
-    metadata: [{
-      name: 'content-type',
-      content: 'application/pdf'
-    }],
   } satisfies Preset.ThemeConfig,
-
-  plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'ddocs-efault',
-        path: 'docs',
-        routeBasePath: 'docs',
-        sidebarPath: './sidebars.ts',
-        // This allows serving PDF files
-        include: ['**/*.{md,mdx,pdf}'],
-      },
-    ],
-  ],
 };
 
 export default config;

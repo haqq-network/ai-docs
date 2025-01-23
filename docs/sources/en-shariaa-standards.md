@@ -1,10 +1,3 @@
----
-id: shariaa-standards
-title: Shariaa Standards
-sidebar_position: 3
-description: HAQQ Shariaa Standards Documentation
----
-
 # Shariaa Standards
 
 You can view or download our Shariaa Standards documentation in PDF format:
