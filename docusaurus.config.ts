@@ -5,25 +5,6 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-function defineSection(section: string) {
-  return [
-    '@docusaurus/plugin-content-docs',
-    {
-      id: section,
-      path: `docs`,
-      routeBasePath: 'docs',
-      sidebarPath: './sidebars.ts',
-      // editUrl: 'https://github.com/haqq-network/ai-docs/tree/master/',
-      // include: ['**/*.{md,mdx}'],
-      include: ['**/*.{md,mdx,pdf}'],
-    },
-  ];
-}
-
-const SECTIONS = [
-  defineSection('sources'),
-];
-
 const config: Config = {
   title: 'HAQQ Documentation',
   tagline: 'HAQQ is a scalable and interoperable Ethereum, built on Proof-of-Stake with fast-finality.',
@@ -70,6 +51,11 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           breadcrumbs: true,
+          routeBasePath: 'docs',
+          path: 'docs',
+          include: ['**/*.{md,mdx}'],
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -84,16 +70,6 @@ const config: Config = {
   ],
 
   plugins: [
-    ...SECTIONS,
-    
-    /*[
-      'posthog-docusaurus',
-      {
-        apiKey: 'phc_S8yvZufvPSBgyfXwjP2nIzndGES4HV8i0yOxMecUkLE',
-        appUrl: 'https://eu.posthog.com', 
-        enableInDevelopment: false,
-      },
-    ],*/
     async function tailwindPlugin() {
       return {
         name: 'docusaurus-tailwindcss',
