@@ -5,9 +5,6 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-const lightCodeTheme = prismThemes.github;
-const darkCodeTheme = prismThemes.vsDark;
-
 function defineSection(section: string, options = {}) {
   return [
     '@docusaurus/plugin-content-docs',
@@ -35,9 +32,9 @@ const config: Config = {
   url: 'https://docs.haqq.network',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  trailingSlash: true,
+  // trailingSlash: true,
 
   i18n: {
     defaultLocale: 'en',
@@ -112,7 +109,11 @@ const config: Config = {
   ],
 
   themeConfig: {
-    metadata: [
+    metadata: [{
+
+      name: 'content-type',
+      content: 'application/pdf'
+    },
       {
         name: 'keywords',
         content: 'HAQQ, blockchain, ethereum, proof of stake, validator, documentation, islamic blockchain',
@@ -192,9 +193,12 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} HAQQ Network`,
     },
     prism: {
-      theme: lightCodeTheme,
-      darkTheme: darkCodeTheme,
-      additionalLanguages: [
+
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+      // theme: lightCodeTheme,
+      // darkTheme: darkCodeTheme,
+      /*additionalLanguages: [
         'powershell',
         'shell-session', 
         'bash',
@@ -203,8 +207,8 @@ const config: Config = {
         'toml',
         'yaml',
         'json',
-      ],
-    }
+      ],*/
+    },
   } satisfies Preset.ThemeConfig,
 };
 
