@@ -118,8 +118,10 @@ const config: Config = {
       },
       items: [
         {
-          href: '/sources',
+          // href: '/sources',
           position: 'left',
+          type: 'docSidebar',
+          sidebarId: 'docs',
           label: 'Learn',
         },
         
