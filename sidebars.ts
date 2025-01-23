@@ -20,7 +20,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'sources/en-ibn-kathir-qurancom',
         'sources/en-saheeh-quranenc',
-        'sources/shariaa-standards',
+        'sources/en-shariaa-standards',
       ],
     },
   ],

@@ -76,7 +76,6 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           breadcrumbs: true,
         },
-        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
