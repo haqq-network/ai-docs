@@ -5,20 +5,18 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-function defineSection(section: string, options = {}) {
+function defineSection(section: string) {
   return [
     '@docusaurus/plugin-content-docs',
     {
       id: section,
-      path: 'docs',
+      path: `docs`,
       routeBasePath: 'docs',
       sidebarPath: './sidebars.ts',
-      breadcrumbs: true,
-      editUrl: 'https://github.com/haqq-network/ai-docs/tree/master/',
+      // editUrl: 'https://github.com/haqq-network/ai-docs/tree/master/',
+      // include: ['**/*.{md,mdx}'],
       include: ['**/*.{md,mdx,pdf}'],
-      ...options,
     },
-    
   ];
 }
 
