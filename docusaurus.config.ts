@@ -122,7 +122,7 @@ const config: Config = {
           position: 'left',
           type: 'docSidebar',
           sidebarId: 'docs',
-          label: 'Learn',
+          label: 'ID Docs',
         },
         
         {
