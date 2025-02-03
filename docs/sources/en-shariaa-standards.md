@@ -1,18 +1,5 @@
 # Shariaa Standards
 
-You can view or download our Shariaa Standards documentation in PDF format:
-
-<iframe
-  src="/pdfs/en-shariaa-standards.pdf"
-  width="100%"
-  height="800px"
-  style={{border: 'none'}}
-></iframe>
-
-## Direct Download
-
-You can also [download the PDF directly](/pdfs/Shariaa-Standards-ENG.pdf).
-
 1388
  The Accounting and Auditing Organization for Islamic Financial Institutions, 2015
 King Fahd National Library Cataloging-in-Publication Data
