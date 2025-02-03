@@ -51,11 +51,12 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           breadcrumbs: true,
-          routeBasePath: 'docs',
+          routeBasePath: '/',
           path: 'docs',
           include: ['**/*.{md,mdx}'],
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
+          editUrl: 'https://github.com/haqq-network/ai-docs/blob/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
